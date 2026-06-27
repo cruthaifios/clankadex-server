@@ -1,4 +1,5 @@
 .venv/
+.venv-brain/
 __pycache__/
 *.pyc
 dev-ignore/

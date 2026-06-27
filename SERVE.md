@@ -61,36 +61,6 @@ sudo dnf install libomp-devel
 ### Compile
 
 ```bash
-make llm-serve
-```
-
-This produces the `./llm-serve` binary. The Makefile auto-detects OpenMP and compiles with `-Ofast -march=native` for best performance on your hardware.
-
-### Debug build
-
-For stepping through with gdb/lldb, build with debug symbols:
-
-```bash
-CC=gcc CFLAGS="-g -O0 -fopenmp -DOMP" make llm-serve
-```
-
----
-
-## Running the Server
-
-### Basic usage
-
-```bash
-./llm-serve -m /path/to/model.gguf
-```
-
-The server loads the model, prints config info to stderr, and begins listening on port 8080. You'll see output like:
-
-```
-OpenMP threads: 4
-Loading GGUF model: /path/to/model.gguf
-  arch=llama layers=22 heads=32 kv_heads=4 embed=2048 ffn=5632 ctx=2048
-  vocab_size=32000 bos=1 eos=2
 Model loaded.
 llm-serve listening on http://0.0.0.0:8080
   POST /v1/completions
